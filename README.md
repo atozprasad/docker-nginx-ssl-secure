@@ -1,11 +1,11 @@
-docker-nginx
-============
+docker-nginx-ssl-secure
+=======================
 
 A high-performance Nginx base image for Docker to serve static websites. It will serve anything in the `/var/www` directory.
 
 To build a Docker image for your site, you'll need to create a `Dockerfile`. For example, if your site is in a directory called `src/`, you could create this `Dockerfile`:
 
-    FROM kyma/docker-nginx
+    FROM farrajota/docker-nginx-ssl-secure
     COPY src/ /var/www
     CMD 'nginx'
 
@@ -21,7 +21,8 @@ Then build and run it:
 
 Docker Hub
 ----------
-The trusted build information can be found on the Docker Hub at https://registry.hub.docker.com/u/kyma/docker-nginx/.
+
+The trusted build information can be found on the Docker Hub at https://hub.docker.com/r/farrajota/docker-nginx-ssl-secure/.
 
 SSL
 ---
@@ -58,7 +59,7 @@ where you copy in your modified config files.
 # docker build -t CONTAINERNAME .
 
 # Build from this repo's image
-FROM kyma/docker-nginx
+FROM farrajota/docker-nginx-ssl-secure
 
 # Example if you wanna swap the default server file.
 COPY path/to/your/default /etc/nginx/sites-enabled/default
@@ -68,3 +69,8 @@ COPY src/ /var/www
 
 CMD 'nginx'
 ```
+
+License
+-------
+
+[MIT License](LICENSE.txt)
